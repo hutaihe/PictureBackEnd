@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.taiheblog.user.mapper.AdminUserMapper" >
+    <resultMap id="BaseResultMap" type="com.taiheblog.user.pojo.AdminUser" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="username" property="username" jdbcType="CHAR" />
+        <result column="password" property="password" jdbcType="CHAR" />
+        <result column="account" property="account" jdbcType="CHAR" />
+        <result column="phone" property="phone" jdbcType="CHAR" />
+        <result column="email" property="email" jdbcType="CHAR" />
+        <result column="sex" property="sex" jdbcType="CHAR" />
+        <result column="imageurl" property="imageurl" jdbcType="VARCHAR" />
+        <result column="describe" property="describe" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getAdminUserById" resultMap="BaseResultMap">
+        select * from th_adminuser where id = #{id}
+    </select>
+    <select id="getAdminByAccountAndPassword" resultMap="BaseResultMap">
+        select * from th_adminuser where account = #{account} and password = #{password}
+    </select>
+
+</mapper>
